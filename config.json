@@ -1,0 +1,30 @@
+{
+ "sales": [
+  {
+   "ar": "منار",
+   "en": "Manar",
+   "phone": "201013105930"
+  },
+  {
+   "ar": "مريم",
+   "en": "Mariam",
+   "phone": "201038849410"
+  },
+  {
+   "ar": "سهر",
+   "en": "Sohar",
+   "phone": "201038870908"
+  }
+ ],
+ "social": {
+  "whatsapp": "",
+  "facebook": "https://www.facebook.com/share/1CbVhakLfG/",
+  "facebook_sales": "https://www.facebook.com/share/1AAS5iEHd6/",
+  "instagram": "https://www.instagram.com/r0yalplast?exln=bmhwcndkd2dydnBh",
+  "telegram": "https://t.me/+GDH_qp3llDZkOWZk",
+  "website": "https://royalplast-eg.com",
+  "tiktok": "",
+  "youtube": "",
+  "email": ""
+ }
+}

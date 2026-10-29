@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Royal Plast | Online Catalog</title>
+<meta name="description" content="Royal plast online catalog — plastic bottles and jars in every size, cap and color.">
+<meta property="og:title" content="Royal Plast | Online Catalog">
+<meta property="og:image" content="assets/logo.png">
+<link rel="icon" href="assets/favicon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<script>try{var t=localStorage.getItem('rp_theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
+</head>
+<body>
+<div id="prog"></div>
+<nav id="nav"><div class="wrap">
+  <a class="brand" href="#hero"><img src="assets/logo.png" alt="Royal plast"></a>
+  <div class="navlinks"><a href="#catalog" data-t="nav_cat"></a><a href="#contact" data-t="nav_contact"></a></div>
+  <div class="sp"></div>
+  <button class="tbtn" id="theme" aria-label="theme"></button>
+</div></nav>
+
+<header id="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid"></div>
+  <div id="floaters"></div>
+  <div class="hero-in">
+    <img class="hero-logo" src="assets/mark.png" alt="Royal plast">
+    <div class="kicker" data-t="kicker"></div>
+    <h1 class="hero-t"><span data-t="welcome"></span><br><span class="grad" data-t="entity"></span></h1>
+    <p class="hero-s" data-t="sub"></p>
+    <a class="cta" href="#catalog"><span data-t="cta"></span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg></a>
+    <div class="soc" id="soc-hero"></div>
+  </div>
+  <div class="scroll"></div>
+</header>
+
+<div id="stats"><div class="wrap stg" id="stg"></div></div>
+
+<section id="catalog"><div class="wrap">
+  <div class="sh rv"><h2 data-t="cat_title"></h2><p data-t="cat_sub"></p></div>
+  <div class="tabs rv" id="tabs"></div>
+  <div class="fbar rv">
+    <div class="frow"><div class="srch"><input id="q" type="search" data-p="search"><button class="rst" id="reset" data-t="reset"></button></div></div>
+    <div class="frow" id="f-size"><span class="fl2" data-t="f_size"></span></div>
+    <div class="frow" id="f-neck"><span class="fl2" data-t="f_neck"></span></div>
+    <div class="frow" id="f-color"><span class="fl2" data-t="f_color"></span></div>
+    <div class="frow" id="f-cap"><span class="fl2" data-t="f_cap"></span></div>
+  </div>
+  <div class="cnt" id="cnt"></div>
+  <div class="pg" id="grid"></div>
+</div></section>
+
+<section id="contact"><div class="wrap">
+  <div class="sh rv"><h2 data-t="ct_title"></h2><p data-t="ct_sub"></p></div>
+  <div class="cg">
+    <div class="reps3 rv" id="reps3"></div>
+    <div class="qrw rv"><div class="qrb"><div id="qr"></div><p data-t="qr_t"></p></div><div class="soc" id="soc-foot"></div></div>
+  </div>
+</div></section>
+
+<footer><img src="assets/logo.png" alt="Royal plast"><div data-t="foot"></div><div>© <span id="yr"></span> Royal plast</div></footer>
+
+<a class="floatwa" id="fwa" href="#" aria-label="WhatsApp"></a>
+<button class="topb" id="topb" aria-label="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
+
+<div class="ov" id="pm"><div class="md" role="dialog">
+  <button class="x" data-close>✕</button>
+  <div class="gal"><div class="gm"><img id="gimg" alt=""><button class="nv p" id="gp">‹</button><button class="nv nx" id="gn">›</button></div><div class="th" id="gth"></div></div>
+  <div class="inf"><h3 id="mt"></h3><table class="sp-t" id="mtab"></table><button class="wab" id="mwa"></button><div class="note" data-t="wa_note"></div></div>
+</div></div>
+
+<div class="ov" id="rm"><div class="rm" role="dialog">
+  <button class="x" data-close>✕</button>
+  <h3 data-t="pick_t"></h3><p data-t="pick_s"></p><div id="replist"></div>
+</div></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
+<script src="app.js"></script>
+</body></html>
