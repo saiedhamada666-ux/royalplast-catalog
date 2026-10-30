@@ -50,7 +50,7 @@ function fmtSize(s){if(s.u=='ML')return s.v==1000?`1 ${t('l')}`:`${s.v} ${t('ml'
 function sizesTxt(p){const a=p.sizes;if(!a.length)return '';const same=a.every(x=>x.u==a[0].u)&&a.every(x=>x.v!=1000);
  if(same)return a.map(x=>x.v).join(' / ')+' '+t(a[0].u=='ML'?'ml':'gm');return a.map(fmtSize).join(' / ')}
 const capName=c=>lang=='ar'?c.ar:c.en;
-function title(p){if(p.nospec)return `${t('nospec_t')} ${p.code}`;if(p.caps.length)return p.caps.map(capName).join(' / ');return [t(p.cat=='jar'?'jar':'bottle'),...p.extra.map(e=>e.en)].join(' · ')}
+function title(p){if(p.name&&p.name.trim())return p.name.trim();if(p.nospec)return `${t('nospec_t')} ${p.code}`;if(p.caps.length)return p.caps.map(capName).join(' / ');return [t(p.cat=='jar'?'jar':'bottle'),...p.extra.map(e=>e.en)].join(' · ')}
 function fullTitle(p){return `${t(p.cat=='jar'?'jar':'bottle')} ${sizesTxt(p)}`.trim()}
 function sub(p){if(p.nospec)return t('nospec');const a=[];if(p.necks.length)a.push(p.necks.map(n=>'NK'+n).join(' / '));p.caps.forEach(c=>a.push(capName(c)));p.extra.forEach(e=>a.push(lang=='ar'?e.ar:e.en));return a.join(' · ')}
 const colTxt=p=>p.colors.map(c=>t(c)).join('، ').replace(/،/g,lang=='ar'?'، ':', ');
