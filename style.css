@@ -273,3 +273,10 @@ html[dir=rtl] .mqt{animation-direction:reverse}
 
 .mq{display:none}
 #stats{padding-top:40px}
+
+.md{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr)}
+.gal,.inf{min-width:0}
+.gm{width:100%;background:#fff}
+.gm img{object-fit:contain;background:#fff}
+.gc{position:absolute;bottom:10px;inset-inline-start:50%;translate:-50% 0;padding:4px 12px;border-radius:99px;background:rgba(13,21,34,.72);color:#fff;font-weight:800;font-size:12px;backdrop-filter:blur(6px)}
+@media(max-width:820px){.md{grid-template-columns:minmax(0,1fr);width:100%}.gal{padding:12px}.nv{width:46px;height:46px;font-size:24px}.th img{width:54px;height:54px}.x{top:10px;inset-inline-end:10px;position:fixed;z-index:7}}
