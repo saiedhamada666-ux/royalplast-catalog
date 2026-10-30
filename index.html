@@ -25,6 +25,7 @@
 <header id="hero">
   <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div><div class="grid"></div>
   <div id="floaters"></div>
+  <div id="bubs"></div>
   <div class="hero-in">
     <img class="hero-logo" src="assets/mark.png" alt="Royal plast">
     <div class="kicker" data-t="kicker"></div>
@@ -38,16 +39,15 @@
 
 <div id="stats"><div class="wrap stg" id="stg"></div></div>
 
+<div class="mq"><div class="mqt" id="mq"></div></div>
 <section id="catalog"><div class="wrap">
   <div class="sh rv"><h2 data-t="cat_title"></h2><p data-t="cat_sub"></p></div>
   <div class="tabs rv" id="tabs"></div>
-  <div class="fbar rv">
-    <div class="frow"><div class="srch"><input id="q" type="search" data-p="search"><button class="rst" id="reset" data-t="reset"></button></div></div>
-    <div class="frow" id="f-size"><span class="fl2" data-t="f_size"></span></div>
-    <div class="frow" id="f-neck"><span class="fl2" data-t="f_neck"></span></div>
-    <div class="frow" id="f-color"><span class="fl2" data-t="f_color"></span></div>
-    <div class="frow" id="f-cap"><span class="fl2" data-t="f_cap"></span></div>
+  <div class="toolbar rv">
+    <div class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" data-p="search"></div>
+    <button class="fbtn" id="fopen" aria-label="Filters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span data-t="filters"></span><b id="fbadge" hidden>0</b></button>
   </div>
+  <div class="act" id="act"></div>
   <div class="cnt" id="cnt"></div>
   <div class="pg" id="grid"></div>
 </div></section>
@@ -65,6 +65,16 @@
 <a class="floatwa" id="fwa" href="#" aria-label="WhatsApp"></a>
 <button class="topb" id="topb" aria-label="top"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg></button>
 
+<div class="ov" id="fd"><aside class="drawer" role="dialog">
+  <div class="dh"><h3 data-t="filters"></h3><button class="x2" data-close aria-label="close">✕</button></div>
+  <div class="db">
+    <div class="fsec" id="f-size"><h4 data-t="f_size"></h4><div class="chs"></div></div>
+    <div class="fsec" id="f-neck"><h4 data-t="f_neck"></h4><div class="chs"></div></div>
+    <div class="fsec" id="f-cap"><h4 data-t="f_cap"></h4><div class="chs"></div></div>
+    <div class="fsec" id="f-color"><h4 data-t="f_color"></h4><div class="chs"></div></div>
+  </div>
+  <div class="df"><button class="clr" id="reset" data-t="reset"></button><button class="apply" id="apply" data-close></button></div>
+</aside></div>
 <div class="ov" id="pm"><div class="md" role="dialog">
   <button class="x" data-close>✕</button>
   <div class="gal"><div class="gm"><img id="gimg" alt=""><button class="nv p" id="gp">‹</button><button class="nv nx" id="gn">›</button></div><div class="th" id="gth"></div></div>
