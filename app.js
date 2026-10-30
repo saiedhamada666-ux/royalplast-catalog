@@ -162,7 +162,7 @@ function floaters(){const pick=[...new Set([1,60,130,200,150,90])].map(i=>DATA[M
  const pos=[['6%','16%',-9],['80%','12%',8],['3%','62%',7],['84%','60%',-7],['22%','78%',-5],['68%','78%',6]];
  $('#floaters').innerHTML=pick.map((p,i)=>`<div class="fl" style="inset-inline-start:${pos[i][0]};top:${pos[i][1]};--r:${pos[i][2]}deg;animation-delay:${-i*1.3}s;${i>3?'':''}"><img src="${thU(p.imgs[0])}" alt=""></div>`).join('')}
 function bubbles(){$('#bubs').innerHTML=Array.from({length:14},(_,i)=>`<i style="left:${Math.random()*100}%;--s:${8+Math.random()*26}px;--t:${9+Math.random()*10}s;--dl:${-Math.random()*14}s;--c:${i%3?'var(--cyan)':'var(--red)'}"></i>`).join('')}
-function marquee(){const names=new Set;DATA.forEach(p=>p.caps.forEach(c=>names.add(c.en)));const L=[...names];const h=L.map(n=>`<span>${n}</span>`).join('<em>✦</em>');$('#mq').innerHTML=h+'<em>✦</em>'+h+'<em>✦</em>'}
+function marquee(){if(!$('#mq'))return;const names=new Set;DATA.forEach(p=>p.caps.forEach(c=>names.add(c.en)));const L=[...names];const h=L.map(n=>`<span>${n}</span>`).join('<em>✦</em>');$('#mq').innerHTML=h+'<em>✦</em>'+h+'<em>✦</em>'}
 addEventListener('pointermove',e=>{if(!FINE)return;const hr=$('#hero');if(scrollY>innerHeight)return;hr.style.setProperty('--mx',(e.clientX/innerWidth-.5).toFixed(3));hr.style.setProperty('--my',(e.clientY/innerHeight-.5).toFixed(3))},{passive:true});
 /* init */
 function qr(){try{const q=qrcode(0,'M');q.addData(location.origin+location.pathname+'#contact');q.make();$('#qr').innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true})}catch(e){}}

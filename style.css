@@ -270,3 +270,6 @@ html[dir=rtl] .mqt{animation-direction:reverse}
 .ic p{font-size:13px;line-height:1.7}
 .thx{padding:30px 20px}.thx img{height:46px}
 @media(min-width:760px){.ic{padding:22px 14px}.ic h4{font-size:17px}.ic p{font-size:14.5px}}
+
+.mq{display:none}
+#stats{padding-top:40px}
