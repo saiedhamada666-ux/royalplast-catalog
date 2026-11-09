@@ -55,7 +55,7 @@ function fullTitle(p){return `${t(p.cat=='jar'?'jar':'bottle')} ${sizesTxt(p)}`.
 function sub(p){if(p.nospec)return t('nospec');const a=[];if(p.necks.length)a.push(p.necks.map(n=>'NK'+n).join(' / '));p.caps.forEach(c=>a.push(capName(c)));p.extra.forEach(e=>a.push(lang=='ar'?e.ar:e.en));return a.join(' · ')}
 const colTxt=p=>p.colors.map(c=>t(c)).join('، ').replace(/،/g,lang=='ar'?'، ':', ');
 const dotsHTML=p=>`<span class="dots">${p.colors.map(c=>`<i class="dot d-${c}" title="${t(c)}"></i>`).join('')}</span>`;
-const IMGV='20261110zc';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
+const IMGV='20261110ze';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
 function reveal(root){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
  (root||document).querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el))}
 function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
@@ -69,7 +69,7 @@ $('#theme').onclick=()=>{theme=theme=='dark'?'light':'dark';save('rp_theme',them
 function socials(){const order=['whatsapp','facebook','facebook_sales','instagram','telegram','tiktok','youtube','website','email'];
  const h=order.filter(k=>k=='whatsapp'||CFG.social[k]).map(k=>{if(k=='whatsapp')return `<a class="si" data-k="whatsapp" href="#" data-wa title="WhatsApp">${I.whatsapp}</a>`;
   const u=CFG.social[k];const href=k=='email'&&!/^mailto:/.test(u)?'mailto:'+u:u;const fs=k=='facebook_sales';return `<a class="si" data-k="${fs?'facebook':k}" href="${href}" target="_blank" rel="noopener" title="${fs?(lang=='ar'?'صفحة المبيعات':'Sales page'):k}" style="position:relative">${I[fs?'facebook':k]}${fs?`<i class="bdg">${lang=='ar'?'مبيعات':'Sales'}</i>`:''}</a>`}).join('');
- $('#soc-hero').innerHTML=h;$('#soc-foot').innerHTML=h;bindWA()}
+ $('#soc-hero').innerHTML=h;$('#soc-foot').innerHTML=h;$('#soc-nav').innerHTML=h;bindWA()}
 function bindWA(){$$('[data-wa]').forEach(a=>a.onclick=e=>{e.preventDefault();openReps(null)});$('#fwa').onclick=e=>{e.preventDefault();openReps(null)}}
 function reps3(){$('#reps3').innerHTML=CFG.sales.map((r,i)=>`<a class="rep" href="#" data-i="${i}" style="--d:${i*.1}s"><span class="av">${(lang=='ar'?r.ar:r.en)[0]}</span><div><b>${lang=='ar'?r.ar:r.en}</b><span>+${r.phone.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/,'$1 $2 $3 $4')}</span></div>${I.go}</a>`).join('');
  $$('#reps3 .rep').forEach(a=>a.onclick=e=>{e.preventDefault();go(CFG.sales[a.dataset.i],null)});reveal()}
