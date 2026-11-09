@@ -3934,9 +3934,22 @@
     {
       "id": 105,
       "cat": "bottle",
-      "sizes": [],
-      "necks": [],
-      "caps": [],
+      "sizes": [
+        {
+          "v": 500,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        28
+      ],
+      "caps": [
+        {
+          "k": "press",
+          "ar": "بريس",
+          "en": "Press Pump"
+        }
+      ],
       "hq": false,
       "matte": false,
       "extra": [],
@@ -3946,7 +3959,7 @@
       "imgs": [
         "155"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-105",
       "hidden": false,
       "name": ""
