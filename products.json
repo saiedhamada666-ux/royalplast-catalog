@@ -7205,9 +7205,27 @@
     {
       "id": 205,
       "cat": "bottle",
-      "sizes": [],
-      "necks": [],
-      "caps": [],
+      "sizes": [
+        {
+          "v": 60,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        24
+      ],
+      "caps": [
+        {
+          "k": "spray",
+          "ar": "سبراي",
+          "en": "Fine Mist Spray"
+        },
+        {
+          "k": "crystal",
+          "ar": "غطاء كريستال",
+          "en": "Crystal Cap"
+        }
+      ],
       "hq": false,
       "matte": false,
       "extra": [],
@@ -7218,7 +7236,7 @@
       "imgs": [
         "308"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-205",
       "hidden": false,
       "name": ""
