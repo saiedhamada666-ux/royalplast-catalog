@@ -5948,8 +5948,15 @@
     {
       "id": 168,
       "cat": "jar",
-      "sizes": [],
-      "necks": [],
+      "sizes": [
+        {
+          "v": 300,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        70
+      ],
       "caps": [],
       "hq": false,
       "matte": false,
@@ -5962,7 +5969,7 @@
       "imgs": [
         "253"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-168",
       "hidden": false,
       "name": ""
