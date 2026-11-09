@@ -8215,9 +8215,22 @@
     {
       "id": 234,
       "cat": "bottle",
-      "sizes": [],
-      "necks": [],
-      "caps": [],
+      "sizes": [
+        {
+          "v": 100,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        24
+      ],
+      "caps": [
+        {
+          "k": "pturki",
+          "ar": "بامب تركي",
+          "en": "Turkish Pump"
+        }
+      ],
       "hq": false,
       "matte": false,
       "extra": [],
@@ -8227,7 +8240,7 @@
       "imgs": [
         "359"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-234",
       "hidden": false,
       "name": ""

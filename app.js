@@ -55,7 +55,7 @@ function fullTitle(p){return `${t(p.cat=='jar'?'jar':'bottle')} ${sizesTxt(p)}`.
 function sub(p){if(p.nospec)return t('nospec');const a=[];if(p.necks.length)a.push(p.necks.map(n=>'NK'+n).join(' / '));p.caps.forEach(c=>a.push(capName(c)));p.extra.forEach(e=>a.push(lang=='ar'?e.ar:e.en));return a.join(' · ')}
 const colTxt=p=>p.colors.map(c=>t(c)).join('، ').replace(/،/g,lang=='ar'?'، ':', ');
 const dotsHTML=p=>`<span class="dots">${p.colors.map(c=>`<i class="dot d-${c}" title="${t(c)}"></i>`).join('')}</span>`;
-const IMGV='20261110z';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
+const IMGV='20261110za';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
 function reveal(root){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
  (root||document).querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el))}
 function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
