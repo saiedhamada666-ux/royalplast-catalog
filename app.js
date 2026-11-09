@@ -20,7 +20,7 @@ cat_title:'كتالوج المنتجات',cat_sub:'اختار الفئة وفل�
 f_size:'الحجم',f_neck:'النيك',f_color:'اللون',f_cap:'نوع الغطاء',all:'الكل',bottles:'زجاجات',jars:'برطمانات',
 res:'منتج',imgs:'صور',ct_title:'تواصل مع فريق المبيعات',ct_sub:'اختار واحد من فريق المبيعات وهيرد عليك على واتساب',qr_t:'امسح الكود لفتح الكتالوج وروابطنا',
 foot:'كتالوج رويال بلاست الإلكتروني',pick_t:'اختار مسؤول المبيعات',pick_s:'هيتفتح واتساب برسالة جاهزة فيها تفاصيل المنتج',
-wa:'اطلب / استفسر على واتساب',wa_note:'هتختار واحد من فريق المبيعات في الخطوة الجاية',wa_gen:'تواصل على واتساب',
+wa:'اطلب / استفسر على واتساب',ordnow:'اطلب الآن',wa_note:'هتختار واحد من فريق المبيعات في الخطوة الجاية',wa_gen:'تواصل على واتساب',
 bottle:'زجاجة',jar:'برطمان',ml:'مل',gm:'جم',l:'لتر',kg:'كيلو',nk:'نيك',
 r_cat:'الفئة',r_size:'الحجم',r_neck:'النيك',r_cap:'الغطاء',r_q:'الجودة',r_col:'الألوان المتاحة',r_code:'كود المنتج',r_img:'عدد الصور',r_x:'تفاصيل إضافية',
 hq:'جودة عالية',matte:'ماط',k:'أسود',w:'أبيض',c:'شفاف',o:'ألوان أخرى',nospec:'اسأل المبيعات عن المقاس والتفاصيل',nospec_t:'منتج',
@@ -33,7 +33,7 @@ cat_title:'Product Catalog',cat_sub:'Pick a category and filter by size, neck, c
 f_size:'Size',f_neck:'Neck',f_color:'Color',f_cap:'Name',filters:'Filters',show:'Show',all:'All',bottles:'Bottles',jars:'Jars',
 res:'products',imgs:'photos',ct_title:'Talk to our Sales Team',ct_sub:'Pick a sales rep and they will reply on WhatsApp',qr_t:'Scan to open the catalog & our links',
 foot:'Royal plast online catalog',pick_t:'Choose a sales rep',pick_s:'WhatsApp opens with a ready message including the product details',
-wa:'Order / Ask on WhatsApp',wa_note:'You will pick a sales rep in the next step',wa_gen:'Chat on WhatsApp',
+wa:'Order / Ask on WhatsApp',ordnow:'Order now',wa_note:'You will pick a sales rep in the next step',wa_gen:'Chat on WhatsApp',
 bottle:'Bottle',jar:'Jar',ml:'ml',gm:'g',l:'L',kg:'kg',nk:'Neck',
 r_cat:'Category',r_size:'Size',r_neck:'Neck',r_cap:'Cap',r_q:'Quality',r_col:'Available colors',r_code:'Product code',r_img:'Photos',r_x:'More details',
 hq:'High quality',matte:'Matte',k:'Black',w:'White',c:'Clear',o:'Other colors',nospec:'Ask sales for size & details',nospec_t:'Product',
@@ -55,7 +55,7 @@ function fullTitle(p){return `${t(p.cat=='jar'?'jar':'bottle')} ${sizesTxt(p)}`.
 function sub(p){if(p.nospec)return t('nospec');const a=[];if(p.necks.length)a.push(p.necks.map(n=>'NK'+n).join(' / '));p.caps.forEach(c=>a.push(capName(c)));p.extra.forEach(e=>a.push(lang=='ar'?e.ar:e.en));return a.join(' · ')}
 const colTxt=p=>p.colors.map(c=>t(c)).join('، ').replace(/،/g,lang=='ar'?'، ':', ');
 const dotsHTML=p=>`<span class="dots">${p.colors.map(c=>`<i class="dot d-${c}" title="${t(c)}"></i>`).join('')}</span>`;
-const IMGV='20261110ze';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
+const IMGV='20261110zf';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
 function reveal(root){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
  (root||document).querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el))}
 function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
@@ -111,7 +111,8 @@ function renderGrid(){const L=DATA.filter(match);$('#cnt').textContent=`${L.leng
  $('#apply').textContent=`${t('show')} ${L.length} ${t('res')}`;
  const g=$('#grid');if(!L.length){g.innerHTML=`<div class="empty">${t('empty')}</div>`;return}
  g.innerHTML=L.map((p,i)=>`<div class="pcw rv" style="--d:${(i%4)*.08}s"><button class="pc" data-id="${p.id}"><div class="pim"><img loading="lazy" src="${thU(p.imgs[0])}" alt="${fullTitle(p)}">${p.hq||p.matte?`<div class="bd">${p.hq?`<span class="bg hq">★ ${t('hq')}</span>`:''}${p.matte?`<span class="bg">${t('matte')}</span>`:''}</div>`:''}${p.imgs.length>1?`<span class="stack">▣ ${p.imgs.length} ${t('imgs')}</span>`:''}<i class="sheen"></i></div>
- <div class="pb"><div class="pt">${title(p)}</div><div class="tags">${p.necks.map(n=>`<span class="tg n">NK${n}</span>`).join('')}${p.sizes.slice(0,3).map(s=>`<span class="tg s">${fmtSize(s)}</span>`).join('')}${p.sizes.length>3?`<span class="tg s">+${p.sizes.length-3}</span>`:''}${dotsHTML(p)}</div></div></button></div>`).join('');
+ <div class="pb"><div class="pt">${title(p)}</div><div class="tags">${p.necks.map(n=>`<span class="tg n">NK${n}</span>`).join('')}${p.sizes.slice(0,3).map(s=>`<span class="tg s">${fmtSize(s)}</span>`).join('')}${p.sizes.length>3?`<span class="tg s">+${p.sizes.length-3}</span>`:''}${dotsHTML(p)}</div></div></button><button class="ord" data-id="${p.id}">${I.whatsapp}${t('ordnow')}</button></div>`).join('');
+ $$('#grid .ord').forEach(b=>b.onclick=()=>openReps(DATA.find(x=>x.id==b.dataset.id)));
  $$('#grid .pc').forEach(b=>{b.onclick=()=>openProd(+b.dataset.id);fx(b)});reveal(g)}
 /* card fx: tilt + image cycling */
 const FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -149,7 +150,7 @@ $('#pm').addEventListener('click',e=>{if(e.target==$('#pm')||e.target.closest('[
 function msg(p){if(!p)return t('msg_gen');const url=location.origin+location.pathname+'#p='+p.id;
  return `${t('msg')}\n\n• ${t('m_prod')}: ${title(p)}\n• ${t(p.cat=='jar'?'jar':'bottle')}${p.sizes.length?' · '+sizesTxt(p):''}${p.necks.length?' · '+p.necks.map(n=>'NK'+n).join('/'):''}\n• ${t('m_col')}: ${colTxt(p)}\n• ${t('m_code')}: ${p.code}\n• ${t('m_link')}: ${url}`}
 function go(r,p){window.open(`https://wa.me/${r.phone}?text=${encodeURIComponent(msg(p))}`,'_blank','noopener')}
-function openReps(p){const L=[...CFG.sales].sort(()=>Math.random()-.5);
+function openReps(p){const L=[...CFG.sales];
  $('#replist').innerHTML=L.map((r,i)=>`<a class="rep" href="#" data-i="${i}"><span class="av">${(lang=='ar'?r.ar:r.en)[0]}</span><div><b>${lang=='ar'?r.ar:r.en}</b><span>+${r.phone.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/,'$1 $2 $3 $4')}</span></div>${I.go}</a>`).join('');
  $$('#replist .rep').forEach(a=>a.onclick=e=>{e.preventDefault();go(L[a.dataset.i],p);hide($('#rm'))});show('#rm')}
 /* scroll fx */

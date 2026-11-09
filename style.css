@@ -284,3 +284,6 @@ html[dir=rtl] .mqt{animation-direction:reverse}
 /* nav socials */
 .nav-soc{margin:0;animation:none;gap:6px;flex-wrap:nowrap;justify-content:flex-end}.nav-soc .si{width:38px;height:38px;border-radius:12px;box-shadow:none}.nav-soc .si svg{width:18px;height:18px}.nav-soc .bdg{display:none}
 @media(max-width:520px){.nav-soc{gap:4px}.nav-soc .si{width:32px;height:32px;border-radius:10px}.nav-soc .si svg{width:16px;height:16px}.nav-soc .si[data-k=website]{display:none}nav .wrap{gap:8px}}
+
+/* order now */
+.pcw{flex-direction:column;gap:10px}.pcw .pc{flex:1}.ord{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:12px 14px;border:0;border-radius:16px;background:#25d366;color:#fff;font:inherit;font-weight:800;font-size:15px;cursor:pointer;box-shadow:0 8px 20px -8px rgba(37,211,102,.6);transition:transform .2s,box-shadow .2s}.ord svg{width:20px;height:20px}.ord:hover{transform:translateY(-2px);box-shadow:0 12px 24px -8px rgba(37,211,102,.7)}
