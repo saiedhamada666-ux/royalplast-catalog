@@ -3967,9 +3967,22 @@
     {
       "id": 106,
       "cat": "bottle",
-      "sizes": [],
-      "necks": [],
-      "caps": [],
+      "sizes": [
+        {
+          "v": 500,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        28
+      ],
+      "caps": [
+        {
+          "k": "press",
+          "ar": "بريس",
+          "en": "Press Pump"
+        }
+      ],
       "hq": false,
       "matte": false,
       "extra": [],
@@ -3979,7 +3992,7 @@
       "imgs": [
         "156"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-106",
       "hidden": false,
       "name": ""
@@ -3987,9 +4000,22 @@
     {
       "id": 107,
       "cat": "bottle",
-      "sizes": [],
-      "necks": [],
-      "caps": [],
+      "sizes": [
+        {
+          "v": 500,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        28
+      ],
+      "caps": [
+        {
+          "k": "press",
+          "ar": "بريس",
+          "en": "Press Pump"
+        }
+      ],
       "hq": false,
       "matte": false,
       "extra": [],
@@ -3999,7 +4025,7 @@
       "imgs": [
         "157"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-107",
       "hidden": false,
       "name": ""
