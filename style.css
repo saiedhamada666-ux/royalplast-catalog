@@ -287,3 +287,4 @@ html[dir=rtl] .mqt{animation-direction:reverse}
 
 /* order now */
 .pc{cursor:pointer}.prow{display:flex;direction:ltr;align-items:center;justify-content:space-between;gap:10px}.prow .pt{flex:1;min-width:0;text-align:start}.ord{display:inline-flex;align-items:center;gap:6px;flex:none;padding:8px 12px;border:0;border-radius:12px;background:#25d366;color:#fff;font:inherit;font-weight:800;font-size:13px;cursor:pointer;direction:ltr;box-shadow:0 6px 14px -6px rgba(37,211,102,.7);transition:transform .2s}.ord svg{width:16px;height:16px}.ord:hover{transform:translateY(-2px)}
+@media(max-width:700px){.prow{display:contents}.prow .pt{order:1}.pb .tags{order:2}.pb .ord{order:3;width:100%;justify-content:center;margin-top:4px;padding:9px 12px;font-size:13px;border-radius:12px}.pb .ord svg{width:16px;height:16px}}
