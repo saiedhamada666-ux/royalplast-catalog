@@ -3733,9 +3733,22 @@
     {
       "id": 99,
       "cat": "bottle",
-      "sizes": [],
-      "necks": [],
-      "caps": [],
+      "sizes": [
+        {
+          "v": 250,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        24
+      ],
+      "caps": [
+        {
+          "k": "pturki",
+          "ar": "بامب تركي",
+          "en": "Turkish Pump"
+        }
+      ],
       "hq": false,
       "matte": false,
       "extra": [],
@@ -3745,7 +3758,7 @@
       "imgs": [
         "137"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-099",
       "hidden": false,
       "name": ""
