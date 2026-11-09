@@ -1172,9 +1172,30 @@
     {
       "id": 34,
       "cat": "bottle",
-      "sizes": [],
-      "necks": [],
-      "caps": [],
+      "sizes": [
+        {
+          "v": 250,
+          "u": "ML"
+        },
+        {
+          "v": 220,
+          "u": "ML"
+        },
+        {
+          "v": 200,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        24
+      ],
+      "caps": [
+        {
+          "k": "press",
+          "ar": "بريس",
+          "en": "Press Pump"
+        }
+      ],
       "hq": false,
       "matte": false,
       "extra": [],
@@ -1184,7 +1205,7 @@
       "imgs": [
         "046"
       ],
-      "nospec": true,
+      "nospec": false,
       "code": "RP-034",
       "hidden": false,
       "name": ""
