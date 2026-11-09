@@ -55,7 +55,7 @@ function fullTitle(p){return `${t(p.cat=='jar'?'jar':'bottle')} ${sizesTxt(p)}`.
 function sub(p){if(p.nospec)return t('nospec');const a=[];if(p.necks.length)a.push(p.necks.map(n=>'NK'+n).join(' / '));p.caps.forEach(c=>a.push(capName(c)));p.extra.forEach(e=>a.push(lang=='ar'?e.ar:e.en));return a.join(' · ')}
 const colTxt=p=>p.colors.map(c=>t(c)).join('، ').replace(/،/g,lang=='ar'?'، ':', ');
 const dotsHTML=p=>`<span class="dots">${p.colors.map(c=>`<i class="dot d-${c}" title="${t(c)}"></i>`).join('')}</span>`;
-const IMGV='20261110zf';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
+const IMGV='20261110zg';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
 function reveal(root){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
  (root||document).querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el))}
 function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
@@ -110,10 +110,10 @@ function renderGrid(){const L=DATA.filter(match);$('#cnt').textContent=`${L.leng
  $$('#act .pill').forEach(b=>b.onclick=()=>{const set=S[b.dataset.f];[...set].forEach(x=>{if(String(x)==b.dataset.k)set.delete(x)});buildFilters();renderGrid()});
  $('#apply').textContent=`${t('show')} ${L.length} ${t('res')}`;
  const g=$('#grid');if(!L.length){g.innerHTML=`<div class="empty">${t('empty')}</div>`;return}
- g.innerHTML=L.map((p,i)=>`<div class="pcw rv" style="--d:${(i%4)*.08}s"><button class="pc" data-id="${p.id}"><div class="pim"><img loading="lazy" src="${thU(p.imgs[0])}" alt="${fullTitle(p)}">${p.hq||p.matte?`<div class="bd">${p.hq?`<span class="bg hq">★ ${t('hq')}</span>`:''}${p.matte?`<span class="bg">${t('matte')}</span>`:''}</div>`:''}${p.imgs.length>1?`<span class="stack">▣ ${p.imgs.length} ${t('imgs')}</span>`:''}<i class="sheen"></i></div>
- <div class="pb"><div class="pt">${title(p)}</div><div class="tags">${p.necks.map(n=>`<span class="tg n">NK${n}</span>`).join('')}${p.sizes.slice(0,3).map(s=>`<span class="tg s">${fmtSize(s)}</span>`).join('')}${p.sizes.length>3?`<span class="tg s">+${p.sizes.length-3}</span>`:''}${dotsHTML(p)}</div></div></button><button class="ord" data-id="${p.id}">${I.whatsapp}${t('ordnow')}</button></div>`).join('');
- $$('#grid .ord').forEach(b=>b.onclick=()=>openReps(DATA.find(x=>x.id==b.dataset.id)));
- $$('#grid .pc').forEach(b=>{b.onclick=()=>openProd(+b.dataset.id);fx(b)});reveal(g)}
+ g.innerHTML=L.map((p,i)=>`<div class="pcw rv" style="--d:${(i%4)*.08}s"><div class="pc" role="button" tabindex="0" data-id="${p.id}"><div class="pim"><img loading="lazy" src="${thU(p.imgs[0])}" alt="${fullTitle(p)}">${p.hq||p.matte?`<div class="bd">${p.hq?`<span class="bg hq">★ ${t('hq')}</span>`:''}${p.matte?`<span class="bg">${t('matte')}</span>`:''}</div>`:''}${p.imgs.length>1?`<span class="stack">▣ ${p.imgs.length} ${t('imgs')}</span>`:''}<i class="sheen"></i></div>
+ <div class="pb"><div class="prow"><div class="pt" dir="${document.documentElement.dir}">${title(p)}</div><button class="ord" data-id="${p.id}" type="button">${I.whatsapp}Order Now</button></div><div class="tags">${p.necks.map(n=>`<span class="tg n">NK${n}</span>`).join('')}${p.sizes.slice(0,3).map(s=>`<span class="tg s">${fmtSize(s)}</span>`).join('')}${p.sizes.length>3?`<span class="tg s">+${p.sizes.length-3}</span>`:''}${dotsHTML(p)}</div></div></div></div>`).join('');
+ $$('#grid .ord').forEach(b=>b.onclick=e=>{e.stopPropagation();openReps(DATA.find(x=>x.id==b.dataset.id))});
+ $$('#grid .pc').forEach(b=>{b.onclick=()=>openProd(+b.dataset.id);b.onkeydown=e=>{if(e.key=='Enter'&&e.target==b)openProd(+b.dataset.id)};fx(b)});reveal(g)}
 /* card fx: tilt + image cycling */
 const FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
 function fx(b){if(!FINE)return;const p=DATA.find(x=>x.id==b.dataset.id),img=b.querySelector('img');let iv=null,k=0;
