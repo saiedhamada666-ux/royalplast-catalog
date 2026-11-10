@@ -848,18 +848,18 @@
       "cat": "bottle",
       "sizes": [
         {
-          "v": 120,
+          "v": 150,
           "u": "ML"
         }
       ],
       "necks": [
-        24
+        42
       ],
       "caps": [
         {
-          "k": "pserum",
-          "ar": "بامب سيرم",
-          "en": "Serum Pump"
+          "k": "foam",
+          "ar": "بامب فوم",
+          "en": "Foam Pump"
         }
       ],
       "hq": false,
