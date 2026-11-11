@@ -324,3 +324,5 @@ html[dir=rtl] .mqt{animation-direction:reverse}
 @media(max-width:700px){.hbt,.cbt{width:34px;height:34px}.hbt svg,.cbt svg{width:17px;height:17px}.pact{top:8px;inset-inline-end:8px;gap:6px}.favbtn{padding:0 16px}.cfoot .clr{padding:0 12px;font-size:13px}.cmd{padding:20px 16px}}
 @media(max-width:700px){#cartbar{bottom:92px}#toast{bottom:150px}}
 #cartnav{position:relative;flex:none}#cartn{position:absolute;top:-6px;inset-inline-end:-6px;min-width:20px;height:20px;padding:0 5px;border-radius:10px;background:var(--red);color:#fff;font-size:11px;font-weight:800;display:grid;place-items:center;border:2px solid var(--bg2);box-sizing:content-box;animation:pop .4s cubic-bezier(.2,1.6,.4,1)}#cartn[hidden]{display:none}
+#cartnav{background:#25d366;border-color:#25d366;color:#fff;box-shadow:0 8px 18px -8px rgba(37,211,102,.8)}#cartnav:hover{border-color:#25d366;filter:brightness(1.06)}
+#mcart.on{border-color:#25d366;color:#25d366}
