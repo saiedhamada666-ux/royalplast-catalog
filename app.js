@@ -26,7 +26,7 @@ r_cat:'الفئة',r_size:'الحجم',r_neck:'النيك',r_cap:'الغطاء',
 hq:'جودة عالية',matte:'ماط',k:'أسود',w:'أبيض',c:'شفاف',o:'ألوان أخرى',nospec:'اسأل المبيعات عن المقاس والتفاصيل',nospec_t:'منتج',
 stat1:'تشكيلة منتجات',stat2:'صورة منتج',stat3:'حجم مختلف',stat4:'نوع غطاء',
 msg:'السلام عليكم، عايز أستفسر عن المنتج ده من كتالوج رويال بلاست:',msg_gen:'السلام عليكم، عايز أستفسر عن منتجات رويال بلاست.',
-m_prod:'المنتج',m_col:'الألوان',m_code:'الكود',m_link:'الرابط',empty:'مفيش منتجات بالفلاتر دي'},
+m_prod:'المنتج',m_col:'الألوان',m_code:'الكود',m_link:'الرابط',empty:'مفيش منتجات بالفلاتر دي',cart_t:'قائمة الاستفسار',cart_s:'حدد الكميات وابعت القائمة لفريق المبيعات على واتساب',cart_send:'ابعت الاستفسار على واتساب',cart_clear:'مسح القائمة',cart_add:'أضف لقائمة الاستفسار',cart_in:'في القائمة ✓',cart_items:'في القائمة',cart_view:'عرض القائمة',cart_empty:'القائمة فاضية',qty:'الكمية',fav_save:'احفظ',fav_saved:'محفوظ',fav_tab:'المحفوظات',fav_none:'مفيش منتجات محفوظة لسه. اضغط على القلب في أي منتج',msg_cart:'السلام عليكم، عايز أستفسر عن المنتجات دي من كتالوج رويال بلاست:',cart_max:'الحد الأقصى 20 منتج في القائمة'},
 en:{nav_cat:'Catalog',nav_contact:'Contact',kicker:'Royal plast',welcome:'Welcome to',entity:'the Royal Plast Entity',
 sub:'Plastic bottles and jars in every size, cap and color. Browse the full range and talk to our sales team right away.',cta:'View the Catalog',
 cat_title:'Product Catalog',cat_sub:'Pick a category and filter by size, neck, color and cap type',reset:'Clear filters',search:'Search name, neck or size',
@@ -39,11 +39,11 @@ r_cat:'Category',r_size:'Size',r_neck:'Neck',r_cap:'Cap',r_q:'Quality',r_col:'Av
 hq:'High quality',matte:'Matte',k:'Black',w:'White',c:'Clear',o:'Other colors',nospec:'Ask sales for size & details',nospec_t:'Product',
 stat1:'Product ranges',stat2:'Product photos',stat3:'Different sizes',stat4:'Cap types',
 msg:'Hello, I would like to ask about this product from the Royal plast catalog:',msg_gen:'Hello, I would like to ask about Royal plast products.',
-m_prod:'Product',m_col:'Colors',m_code:'Code',m_link:'Link',empty:'No products match these filters'}};
+m_prod:'Product',m_col:'Colors',m_code:'Code',m_link:'Link',empty:'No products match these filters',cart_t:'Inquiry list',cart_s:'Set quantities and send the list to our sales team on WhatsApp',cart_send:'Send inquiry on WhatsApp',cart_clear:'Clear list',cart_add:'Add to inquiry list',cart_in:'In your list ✓',cart_items:'in list',cart_view:'View list',cart_empty:'Your list is empty',qty:'Qty',fav_save:'Save',fav_saved:'Saved',fav_tab:'Saved',fav_none:'No saved products yet. Tap the heart on any product',msg_cart:'Hello, I would like to ask about these products from the Royal plast catalog:',cart_max:'Maximum 20 products in the list'}};
 let lang='en',theme=document.documentElement.dataset.theme||'light';
 const t=k=>T[lang][k]||k;
 let DATA=[],CFG={sales:[],social:{}};
-const S={cat:'all',size:new Set,neck:new Set,color:new Set,cap:new Set,q:''};
+const S={fav:false,cat:'all',size:new Set,neck:new Set,color:new Set,cap:new Set,q:''};
 const CO=['k','w','c','o'];
 const sizeKey=s=>s.v+s.u;
 function fmtSize(s){if(s.u=='ML')return s.v==1000?`1 ${t('l')}`:`${s.v} ${t('ml')}`;return s.v==1000?`1 ${t('kg')}`:`${s.v} ${t('gm')}`}
@@ -55,7 +55,7 @@ function fullTitle(p){return `${t(p.cat=='jar'?'jar':'bottle')} ${sizesTxt(p)}`.
 function sub(p){if(p.nospec)return t('nospec');const a=[];if(p.necks.length)a.push(p.necks.map(n=>'NK'+n).join(' / '));p.caps.forEach(c=>a.push(capName(c)));p.extra.forEach(e=>a.push(lang=='ar'?e.ar:e.en));return a.join(' · ')}
 const colTxt=p=>p.colors.map(c=>t(c)).join('، ').replace(/،/g,lang=='ar'?'، ':', ');
 const dotsHTML=p=>`<span class="dots">${p.colors.map(c=>`<i class="dot d-${c}" title="${t(c)}"></i>`).join('')}</span>`;
-const IMGV='20261110zs';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
+const IMGV='20261111a';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
 function reveal(root){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
  (root||document).querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el))}
 function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
@@ -93,9 +93,9 @@ function buildFilters(){
  row('#f-color',CO.filter(c=>cls.has(c)).map(c=>[c,`<i class="dot d-${c}"></i>${t(c)}`]),S.color);
  row('#f-cap',[...cps.values()].map(c=>[c.k,capName(c)]),S.cap)}
 $('#q').oninput=e=>{S.q=e.target.value.trim().toLowerCase();renderGrid()};
-$('#reset').onclick=()=>{S.size.clear();S.neck.clear();S.color.clear();S.cap.clear();buildFilters();renderGrid()};
+$('#reset').onclick=()=>{S.fav=false;$('#favf').classList.remove('on');S.size.clear();S.neck.clear();S.color.clear();S.cap.clear();buildFilters();renderGrid()};
 $('#fopen').onclick=()=>show('#fd');
-function match(p){if(p.hidden)return false;if(S.cat!='all'&&p.cat!=S.cat)return false;
+function match(p){if(p.hidden)return false;if(S.fav&&!FAV.has(p.id))return false;if(S.cat!='all'&&p.cat!=S.cat)return false;
  if(S.size.size&&!p.sizes.some(s=>S.size.has(sizeKey(s))))return false;
  if(S.neck.size&&!p.necks.some(n=>S.neck.has(String(n))||S.neck.has(n)))return false;
  if(S.color.size&&!p.colors.some(c=>S.color.has(c)))return false;
@@ -109,10 +109,11 @@ function renderGrid(){const L=DATA.filter(match);$('#cnt').textContent=`${L.leng
  $('#act').innerHTML=P.map(([f,k,l])=>`<button class="pill" data-f="${f}" data-k="${k}">${l}<i>✕</i></button>`).join('');
  $$('#act .pill').forEach(b=>b.onclick=()=>{const set=S[b.dataset.f];[...set].forEach(x=>{if(String(x)==b.dataset.k)set.delete(x)});buildFilters();renderGrid()});
  $('#apply').textContent=`${t('show')} ${L.length} ${t('res')}`;
- const g=$('#grid');if(!L.length){g.innerHTML=`<div class="empty">${t('empty')}</div>`;return}
- g.innerHTML=L.map((p,i)=>`<div class="pcw rv" style="--d:${(i%4)*.08}s"><div class="pc" role="button" tabindex="0" data-id="${p.id}"><div class="pim"><img loading="lazy" src="${thU(p.imgs[0])}" alt="${fullTitle(p)}">${p.hq||p.matte?`<div class="bd">${p.hq?`<span class="bg hq">★ ${t('hq')}</span>`:''}${p.matte?`<span class="bg">${t('matte')}</span>`:''}</div>`:''}${p.imgs.length>1?`<span class="stack">▣ ${p.imgs.length} ${t('imgs')}</span>`:''}<i class="sheen"></i></div>
+ const g=$('#grid');if(!L.length){g.innerHTML=`<div class="empty">${t(S.fav&&!FAV.size?'fav_none':'empty')}</div>`;return}
+ g.innerHTML=L.map((p,i)=>`<div class="pcw rv" style="--d:${(i%4)*.08}s"><div class="pc" role="button" tabindex="0" data-id="${p.id}"><div class="pim"><img loading="lazy" src="${thU(p.imgs[0])}" alt="${fullTitle(p)}">${p.hq||p.matte?`<div class="bd">${p.hq?`<span class="bg hq">★ ${t('hq')}</span>`:''}${p.matte?`<span class="bg">${t('matte')}</span>`:''}</div>`:''}${p.imgs.length>1?`<span class="stack">▣ ${p.imgs.length} ${t('imgs')}</span>`:''}<i class="sheen"></i><div class="pact"><button class="hbt${FAV.has(p.id)?' on':''}" data-id="${p.id}" type="button" aria-label="Save">${ICO.heart}</button><button class="cbt${inCart(p.id)?' on':''}" data-id="${p.id}" type="button" aria-label="Add to inquiry list">${ICO.bag}</button></div></div>
  <div class="pb"><div class="prow"><div class="pt" dir="${document.documentElement.dir}">${title(p)}</div><button class="ord" data-id="${p.id}" type="button">${I.whatsapp}Order Now</button></div><div class="tags">${p.necks.map(n=>`<span class="tg n">NK${n}</span>`).join('')}${p.sizes.slice(0,3).map(s=>`<span class="tg s">${fmtSize(s)}</span>`).join('')}${p.sizes.length>3?`<span class="tg s">+${p.sizes.length-3}</span>`:''}${dotsHTML(p)}</div></div></div></div>`).join('');
- $$('#grid .ord').forEach(b=>b.onclick=e=>{e.stopPropagation();openReps(DATA.find(x=>x.id==b.dataset.id))});
+ $$('#grid .ord').forEach(b=>b.onclick=e=>{e.stopPropagation();const p=DATA.find(x=>x.id==b.dataset.id);track('order_now',p);openReps(p)});
+ $$('#grid .hbt').forEach(b=>b.onclick=e=>{e.stopPropagation();toggleFav(+b.dataset.id)});$$('#grid .cbt').forEach(b=>b.onclick=e=>{e.stopPropagation();toggleCart(+b.dataset.id)});
  $$('#grid .pc').forEach(b=>{b.onclick=()=>openProd(+b.dataset.id);b.onkeydown=e=>{if(e.key=='Enter'&&e.target==b)openProd(+b.dataset.id)};fx(b)});reveal(g)}
 /* card fx: tilt + image cycling */
 const FINE=matchMedia('(hover:hover) and (pointer:fine)').matches;
@@ -143,16 +144,55 @@ function openProd(id){const p=DATA.find(x=>x.id==id);if(!p)return;cur=p;
  rows.push([t('r_col'),`${dotsHTML(p)} ${colTxt(p)}`]);rows.push([t('r_code'),p.code]);rows.push([t('r_img'),p.imgs.length]);
  if(p.nospec)rows.splice(1,rows.length-4);
  $('#mtab').innerHTML=rows.map(r=>`<tr><td>${r[0]}</td><td>${r[1]}</td></tr>`).join('');
- $('#mwa').innerHTML=I.whatsapp+t('wa');$('#mwa').onclick=()=>openReps(p);
+ $('#mwa').innerHTML=I.whatsapp+t('wa');$('#mwa').onclick=()=>openReps(p);$('#mcart').onclick=()=>toggleCart(p.id);$('#mfav').onclick=()=>toggleFav(p.id);modalBtns();track('view',p);
  gset(0);show('#pm');try{history.replaceState(null,'','#p='+p.id)}catch(e){}}
 $('#pm').addEventListener('click',e=>{if(e.target==$('#pm')||e.target.closest('[data-close]'))try{history.replaceState(null,'',location.pathname)}catch(x){}});
+/* storage + tracking + inquiry list + favorites */
+const ICO={heart:'<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>',bag:'<svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>'};
+const LS={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
+let CART=LS.get('rp_cart',[]),FAV=new Set(LS.get('rp_fav',[]));
+if(!Array.isArray(CART))CART=[];
+const MAXC=20;
+function initTrack(){const px=String(CFG.meta_pixel_id||'').trim(),ga=String(CFG.ga4_id||'').trim();
+ if(/^\d{8,20}$/.test(px)){(function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)})(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init',px);fbq('track','PageView')}
+ if(/^G-[A-Z0-9]{6,14}$/.test(ga)){const s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtag/js?id='+ga;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag('js',new Date());gtag('config',ga)}}
+function track(name,ps,x){try{ps=[].concat(ps||[]).filter(Boolean);x=x||{};
+ const fp=Object.assign({content_ids:ps.map(p=>p.code),content_name:ps.map(title).join(', '),content_type:'product'},x);
+ const FB={view:['track','ViewContent'],add_cart:['track','AddToCart'],wish:['track','AddToWishlist'],begin:['track','InitiateCheckout'],lead:['track','Lead'],order_now:['trackCustom','OrderNowClick'],social:['trackCustom','SocialClick']}[name];
+ if(window.fbq&&FB)fbq(FB[0],FB[1],fp);
+ if(window.gtag){const GA={view:'view_item',add_cart:'add_to_cart',wish:'add_to_wishlist',begin:'begin_checkout',lead:'generate_lead',order_now:'order_now_click',social:'social_click'}[name];if(GA)gtag('event',GA,Object.assign({items:ps.map(p=>({item_id:p.code,item_name:title(p),item_category:p.cat}))},x))}
+}catch(e){}}
+const saveCart=()=>LS.set('rp_cart',CART),saveFav=()=>LS.set('rp_fav',[...FAV]);
+const inCart=id=>CART.some(c=>c.id==id);
+const cartProds=()=>CART.map(c=>DATA.find(x=>x.id==c.id)).filter(Boolean);
+function toast(m){let e=$('#toast');if(!e){e=document.createElement('div');e.id='toast';document.body.appendChild(e)}e.textContent=m;e.classList.add('on');clearTimeout(toast.h);toast.h=setTimeout(()=>e.classList.remove('on'),2200)}
+function toggleCart(id){const p=DATA.find(x=>x.id==id);if(!p)return;const i=CART.findIndex(c=>c.id==id);
+ if(i>=0)CART.splice(i,1);else{if(CART.length>=MAXC){toast(t('cart_max'));return}CART.push({id:+id,q:0});track('add_cart',p)}
+ saveCart();syncUI(id)}
+function toggleFav(id){const p=DATA.find(x=>x.id==id);if(!p)return;if(FAV.has(+id))FAV.delete(+id);else{FAV.add(+id);track('wish',p)}saveFav();syncUI(id);if(S.fav)renderGrid()}
+function modalBtns(){if(!cur)return;const c=inCart(cur.id),f=FAV.has(cur.id),mc=$('#mcart'),mf=$('#mfav');mc.classList.toggle('on',c);mc.innerHTML=ICO.bag+t(c?'cart_in':'cart_add');mf.classList.toggle('on',f);mf.innerHTML=ICO.heart+t(f?'fav_saved':'fav_save')}
+function bar(){const n=CART.length;$('#cartbar').classList.toggle('on',n>0&&!$('#cm').classList.contains('show'));$('#cartn').textContent=n}
+function syncUI(id){if(id!=null){$$(`.hbt[data-id="${id}"]`).forEach(b=>b.classList.toggle('on',FAV.has(+id)));$$(`.cbt[data-id="${id}"]`).forEach(b=>b.classList.toggle('on',inCart(id)))}
+ modalBtns();bar();const fn=$('#favn');fn.hidden=!FAV.size;fn.textContent=FAV.size;if($('#cm').classList.contains('show'))renderCart()}
+function cartMsg(){return t('msg_cart')+'\n\n'+CART.map(c=>({p:DATA.find(x=>x.id==c.id),q:c.q})).filter(x=>x.p).map((x,i)=>{const p=x.p;const spec=[t(p.cat=='jar'?'jar':'bottle')+(p.sizes.length?' '+sizesTxt(p):''),p.necks.length?p.necks.map(n=>'NK'+n).join('/'):''].filter(Boolean).join(' · ');return `${i+1}) ${title(p)} · ${spec}\n    ${t('m_code')}: ${p.code}${x.q?' · '+t('qty')+': '+x.q:''}`}).join('\n')+'\n\n'+t('m_link')+': '+location.origin+location.pathname}
+function renderCart(){const L=CART.map(c=>({c,p:DATA.find(x=>x.id==c.id)})).filter(x=>x.p);
+ $('#cl').innerHTML=L.length?L.map(({c,p})=>`<div class="cr" data-id="${p.id}"><img src="${thU(p.imgs[0])}" alt=""><div class="ci"><b>${title(p)}</b><span>${p.code} · ${[sizesTxt(p),p.necks.map(n=>'NK'+n).join('/')].filter(Boolean).join(' · ')}</span></div><input class="qi" type="number" inputmode="numeric" min="0" max="9999999" placeholder="${t('qty')}" value="${c.q||''}" aria-label="${t('qty')}"><button class="rmv" type="button" aria-label="remove">✕</button></div>`).join(''):`<div class="empty">${t('cart_empty')}</div>`;
+ $$('#cl .cr').forEach(r=>{const id=+r.dataset.id;r.querySelector('.qi').oninput=e=>{const c=CART.find(x=>x.id==id);if(c){c.q=Math.max(0,Math.min(9999999,parseInt(e.target.value)||0));saveCart()}};r.querySelector('.rmv').onclick=()=>toggleCart(id)});
+ $('#csend').disabled=!L.length}
+function openCart(){renderCart();show('#cm');bar();track('begin',cartProds())}
+$('#cartbar').onclick=openCart;
+$('#csend').onclick=()=>{if(CART.length)openReps(null,'cart')};
+$('#cclear').onclick=()=>{CART=[];saveCart();$$('.cbt.on').forEach(b=>b.classList.remove('on'));syncUI()};
+$('#favf').onclick=()=>{S.fav=!S.fav;$('#favf').classList.toggle('on',S.fav);renderGrid()};
+new MutationObserver(bar).observe($('#cm'),{attributes:true,attributeFilter:['class']});
+document.addEventListener('click',e=>{const s=e.target.closest('a.si');if(s&&!s.hasAttribute('data-wa'))track('social',[],{network:s.title=='Sales page'?'facebook_sales':s.dataset.k})});
 /* reps */
-function msg(p){if(!p)return t('msg_gen');const url=location.origin+location.pathname+'#p='+p.id;
+function msg(p,mode){if(mode=='cart')return cartMsg();if(!p)return t('msg_gen');const url=location.origin+location.pathname+'#p='+p.id;
  return `${t('msg')}\n\n• ${t('m_prod')}: ${title(p)}\n• ${t(p.cat=='jar'?'jar':'bottle')}${p.sizes.length?' · '+sizesTxt(p):''}${p.necks.length?' · '+p.necks.map(n=>'NK'+n).join('/'):''}\n• ${t('m_col')}: ${colTxt(p)}\n• ${t('m_code')}: ${p.code}\n• ${t('m_link')}: ${url}`}
-function go(r,p){window.open(`https://wa.me/${r.phone}?text=${encodeURIComponent(msg(p))}`,'_blank','noopener')}
-function openReps(p){const L=[...CFG.sales];
+function go(r,p,mode){track('lead',mode=='cart'?cartProds():(p?[p]:[]),{rep:r.en,source:mode||(p?'product':'general')});window.open(`https://wa.me/${r.phone}?text=${encodeURIComponent(msg(p,mode))}`,'_blank','noopener')}
+function openReps(p,mode){const L=[...CFG.sales];
  $('#replist').innerHTML=L.map((r,i)=>`<a class="rep" href="#" data-i="${i}"><span class="av">${(lang=='ar'?r.ar:r.en)[0]}</span><div><b>${lang=='ar'?r.ar:r.en}</b><span>+${r.phone.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})$/,'$1 $2 $3 $4')}</span></div>${I.go}</a>`).join('');
- $$('#replist .rep').forEach(a=>a.onclick=e=>{e.preventDefault();go(L[a.dataset.i],p);hide($('#rm'))});show('#rm')}
+ $$('#replist .rep').forEach(a=>a.onclick=e=>{e.preventDefault();go(L[a.dataset.i],p,mode);hide($('#rm'));if(mode=='cart')hide($('#cm'))});show('#rm')}
 /* scroll fx */
 const nav=$('#nav'),prog=$('#prog'),topb=$('#topb');
 addEventListener('scroll',()=>{const y=scrollY,h=document.documentElement.scrollHeight-innerHeight;nav.classList.toggle('sc',y>30);prog.style.transform=`scaleX(${h>0?y/h:0})`;topb.classList.toggle('on',y>700);
@@ -168,6 +208,6 @@ addEventListener('pointermove',e=>{if(!FINE)return;const hr=$('#hero');if(scroll
 /* init */
 function qr(){try{const q=qrcode(0,'M');q.addData(location.origin+location.pathname+'#contact');q.make();$('#qr').innerHTML=q.createSvgTag({cellSize:6,margin:0,scalable:true})}catch(e){}}
 Promise.all([fetch('products.json?v='+Date.now()).then(r=>r.json()),fetch('config.json?v='+Date.now()).then(r=>r.json())]).then(([d,c])=>{
- DATA=d.products;CFG=c;applyTheme();applyLang();floaters();bubbles();marquee();qr();reveal();
+ DATA=d.products;CFG=c;initTrack();CART=CART.filter(c=>DATA.some(p=>p.id==c.id&&!p.hidden));FAV=new Set([...FAV].filter(id=>DATA.some(p=>p.id==id&&!p.hidden)));applyTheme();applyLang();syncUI();floaters();bubbles();marquee();qr();reveal();
  const m=location.hash.match(/#p=(\d+)/);if(m){setTimeout(()=>{$('#catalog').scrollIntoView();openProd(+m[1])},300)}});
 })();

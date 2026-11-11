@@ -11,7 +11,7 @@
 <link rel="icon" href="assets/favicon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=20261110n">
+<link rel="stylesheet" href="style.css?v=20261111a">
 <script>try{var t=localStorage.getItem('rp_theme');if(t)document.documentElement.dataset.theme=t;}catch(e){}</script>
 </head>
 <body>
@@ -47,6 +47,7 @@
   <div class="toolbar rv">
     <div class="srch"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg><input id="q" type="search" data-p="search"></div>
     <button class="fbtn" id="fopen" aria-label="Filters"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 5h18l-7 8v6l-4 2v-8z"/></svg><span data-t="filters"></span><b id="fbadge" hidden>0</b></button>
+    <button class="fbtn favbtn" id="favf" type="button" aria-label="Saved products"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg><span data-t="fav_tab"></span><b id="favn" hidden>0</b></button>
   </div>
   <div class="act" id="act"></div>
   <div class="cnt" id="cnt"></div>
@@ -88,14 +89,20 @@
 <div class="ov" id="pm"><div class="md" role="dialog">
   <button class="x" data-close>✕</button>
   <div class="gal"><div class="gm"><img id="gimg" alt=""><span class="gc" id="gc"></span><button class="nv p" id="gp">‹</button><button class="nv nx" id="gn">›</button></div><div class="th" id="gth"></div></div>
-  <div class="inf"><h3 id="mt"></h3><table class="sp-t" id="mtab"></table><button class="wab" id="mwa"></button><div class="note" data-t="wa_note"></div></div>
+  <div class="inf"><h3 id="mt"></h3><table class="sp-t" id="mtab"></table><button class="wab" id="mwa"></button><div class="mact"><button class="mb" id="mcart" type="button"></button><button class="mb" id="mfav" type="button"></button></div><div class="note" data-t="wa_note"></div></div>
 </div></div>
 
+<div class="ov" id="cm"><div class="rm cmd" role="dialog">
+  <button class="x" data-close>✕</button>
+  <h3 data-t="cart_t"></h3><p data-t="cart_s"></p><div id="cl"></div>
+  <div class="cfoot"><button class="clr" id="cclear" type="button" data-t="cart_clear"></button><button class="wab" id="csend" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21l1.65-4.9A8.5 8.5 0 1 1 8 19.4z"/><path d="M9 9.2c.4 2.2 2.6 4.5 5 5.3l1.3-1.3-1.9-1-.8.7c-.8-.4-1.6-1.2-2-2l.7-.8-1-1.9z" fill="currentColor"/></svg><span data-t="cart_send"></span></button></div>
+</div></div>
+<button id="cartbar" type="button" aria-label="Inquiry list"><svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg><span><b id="cartn">0</b> <i data-t="cart_items"></i></span><u data-t="cart_view"></u></button>
 <div class="ov" id="rm"><div class="rm" role="dialog">
   <button class="x" data-close>✕</button>
   <h3 data-t="pick_t"></h3><p data-t="pick_s"></p><div id="replist"></div>
 </div></div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcode-generator/1.4.4/qrcode.min.js"></script>
-<script src="app.js?v=20261110n"></script>
+<script src="app.js?v=20261111a"></script>
 </body></html>
