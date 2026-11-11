@@ -613,8 +613,7 @@
         "w"
       ],
       "imgs": [
-        "051",
-        "080"
+        "051"
       ],
       "nospec": false,
       "code": "RP-017",
@@ -8717,6 +8716,47 @@
       "code": "RP-245",
       "hidden": false,
       "name": ""
+    },
+    {
+      "id": 246,
+      "cat": "bottle",
+      "sizes": [
+        {
+          "v": 250,
+          "u": "ML"
+        },
+        {
+          "v": 220,
+          "u": "ML"
+        },
+        {
+          "v": 200,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        24
+      ],
+      "caps": [
+        {
+          "k": "spray",
+          "ar": "سبراي",
+          "en": "Spray Pump"
+        }
+      ],
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "colors": [
+        "w"
+      ],
+      "imgs": [
+        "080"
+      ],
+      "nospec": false,
+      "code": "RP-246",
+      "hidden": false,
+      "name": "Spray Pump"
     }
   ]
 }
