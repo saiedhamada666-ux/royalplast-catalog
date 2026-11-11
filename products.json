@@ -3203,9 +3203,9 @@
       ],
       "caps": [
         {
-          "k": "press",
-          "ar": "بريس",
-          "en": "Press Pump"
+          "k": "flip",
+          "ar": "فليب توب",
+          "en": "Flip Top"
         }
       ],
       "hq": false,
