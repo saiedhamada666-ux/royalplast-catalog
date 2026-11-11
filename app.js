@@ -55,7 +55,7 @@ function fullTitle(p){return `${t(p.cat=='jar'?'jar':'bottle')} ${sizesTxt(p)}`.
 function sub(p){if(p.nospec)return t('nospec');const a=[];if(p.necks.length)a.push(p.necks.map(n=>'NK'+n).join(' / '));p.caps.forEach(c=>a.push(capName(c)));p.extra.forEach(e=>a.push(lang=='ar'?e.ar:e.en));return a.join(' · ')}
 const colTxt=p=>p.colors.map(c=>t(c)).join('، ').replace(/،/g,lang=='ar'?'، ':', ');
 const dotsHTML=p=>`<span class="dots">${p.colors.map(c=>`<i class="dot d-${c}" title="${t(c)}"></i>`).join('')}</span>`;
-const IMGV='20261111b';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
+const IMGV='20261111c';const imgU=n=>`img/${n}.webp?v=${IMGV}`,thU=n=>`t/${n}.webp?v=${IMGV}`;
 function reveal(root){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -40px 0px'});
  (root||document).querySelectorAll('.rv:not(.in)').forEach(el=>io.observe(el))}
 function applyLang(){document.documentElement.lang=lang;document.documentElement.dir=lang=='ar'?'rtl':'ltr';
@@ -148,7 +148,7 @@ function openProd(id){const p=DATA.find(x=>x.id==id);if(!p)return;cur=p;
  gset(0);show('#pm');try{history.replaceState(null,'','#p='+p.id)}catch(e){}}
 $('#pm').addEventListener('click',e=>{if(e.target==$('#pm')||e.target.closest('[data-close]'))try{history.replaceState(null,'',location.pathname)}catch(x){}});
 /* storage + tracking + inquiry list + favorites */
-const ICO={heart:'<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>',bag:'<svg viewBox="0 0 24 24"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4zM3 6h18M16 10a4 4 0 0 1-8 0"/></svg>'};
+const ICO={heart:'<svg viewBox="0 0 24 24"><path d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.7l-1-1.1a5.5 5.5 0 0 0-7.8 7.8l1 1.1L12 21.2l7.8-7.7 1-1.1a5.5 5.5 0 0 0 0-7.8z"/></svg>',bag:'<svg viewBox="0 0 24 24"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>'};
 const LS={get(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}},set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}};
 let CART=LS.get('rp_cart',[]),FAV=new Set(LS.get('rp_fav',[]));
 if(!Array.isArray(CART))CART=[];
