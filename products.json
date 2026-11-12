@@ -8900,6 +8900,43 @@
         "n009"
       ],
       "name": "Frosted Dropper"
+    },
+    {
+      "id": 250,
+      "cat": "bottle",
+      "sizes": [
+        {
+          "v": 200,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        24
+      ],
+      "caps": [
+        {
+          "k": "splash",
+          "ar": "سبلاش كبس",
+          "en": "Splash Press"
+        }
+      ],
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "colors": [
+        "c",
+        "o"
+      ],
+      "imgs": [
+        "n010",
+        "n011",
+        "n012",
+        "n013"
+      ],
+      "nospec": false,
+      "code": "RP-250",
+      "hidden": false,
+      "name": "Body Splash"
     }
   ]
 }
