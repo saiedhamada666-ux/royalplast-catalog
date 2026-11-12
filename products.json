@@ -8808,6 +8808,98 @@
       "code": "RP-247",
       "hidden": false,
       "name": ""
+    },
+    {
+      "cat": "bottle",
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "nospec": false,
+      "hidden": false,
+      "necks": [
+        24
+      ],
+      "id": 248,
+      "code": "RP-248",
+      "sizes": [
+        {
+          "v": 250,
+          "u": "ML"
+        },
+        {
+          "v": 220,
+          "u": "ML"
+        },
+        {
+          "v": 200,
+          "u": "ML"
+        },
+        {
+          "v": 120,
+          "u": "ML"
+        },
+        {
+          "v": 100,
+          "u": "ML"
+        },
+        {
+          "v": 70,
+          "u": "ML"
+        },
+        {
+          "v": 60,
+          "u": "ML"
+        }
+      ],
+      "caps": [
+        {
+          "k": "pturki",
+          "ar": "بامب تركي",
+          "en": "Turkish Pump"
+        }
+      ],
+      "colors": [
+        "c",
+        "o"
+      ],
+      "imgs": [
+        "n005",
+        "n006",
+        "n007",
+        "n008"
+      ],
+      "name": ""
+    },
+    {
+      "cat": "bottle",
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "nospec": false,
+      "hidden": false,
+      "necks": [],
+      "id": 249,
+      "code": "RP-249",
+      "sizes": [
+        {
+          "v": 30,
+          "u": "ML"
+        }
+      ],
+      "caps": [
+        {
+          "k": "dropper",
+          "ar": "قطارة",
+          "en": "Dropper"
+        }
+      ],
+      "colors": [
+        "o"
+      ],
+      "imgs": [
+        "n009"
+      ],
+      "name": "Frosted Dropper"
     }
   ]
 }
