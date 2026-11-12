@@ -8937,6 +8937,38 @@
       "code": "RP-250",
       "hidden": false,
       "name": "Body Splash"
+    },
+    {
+      "id": 251,
+      "cat": "jar",
+      "sizes": [
+        {
+          "v": 1000,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        95
+      ],
+      "caps": [],
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "colors": [
+        "c",
+        "k",
+        "w"
+      ],
+      "imgs": [
+        "n014",
+        "n015",
+        "n016",
+        "n017"
+      ],
+      "nospec": false,
+      "code": "RP-251",
+      "hidden": false,
+      "name": ""
     }
   ]
 }
