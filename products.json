@@ -8757,6 +8757,57 @@
       "code": "RP-246",
       "hidden": false,
       "name": "Spray Pump"
+    },
+    {
+      "id": 247,
+      "cat": "bottle",
+      "sizes": [
+        {
+          "v": 220,
+          "u": "ML"
+        },
+        {
+          "v": 200,
+          "u": "ML"
+        },
+        {
+          "v": 120,
+          "u": "ML"
+        },
+        {
+          "v": 100,
+          "u": "ML"
+        },
+        {
+          "v": 60,
+          "u": "ML"
+        }
+      ],
+      "necks": [
+        24
+      ],
+      "caps": [
+        {
+          "k": "spray",
+          "ar": "سبراي",
+          "en": "Fine Mist Spray"
+        }
+      ],
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "colors": [
+        "c",
+        "o"
+      ],
+      "imgs": [
+        "n003",
+        "n004"
+      ],
+      "nospec": false,
+      "code": "RP-247",
+      "hidden": false,
+      "name": ""
     }
   ]
 }
