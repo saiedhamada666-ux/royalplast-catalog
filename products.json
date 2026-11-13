@@ -8144,6 +8144,58 @@
       "name": ""
     },
     {
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "nospec": false,
+      "hidden": false,
+      "caps": [],
+      "necks": [],
+      "id": 253,
+      "cat": "bottle",
+      "sizes": [
+        {
+          "v": 10,
+          "u": "ML"
+        }
+      ],
+      "colors": [
+        "c",
+        "w"
+      ],
+      "imgs": [
+        "n019"
+      ],
+      "name": "Mascara",
+      "code": "RP-224"
+    },
+    {
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "nospec": false,
+      "hidden": false,
+      "caps": [],
+      "necks": [],
+      "id": 254,
+      "cat": "bottle",
+      "sizes": [
+        {
+          "v": 5,
+          "u": "ML"
+        }
+      ],
+      "colors": [
+        "c",
+        "w"
+      ],
+      "imgs": [
+        "n020"
+      ],
+      "name": "Lip balm",
+      "code": "RP-225"
+    },
+    {
       "id": 219,
       "cat": "jar",
       "sizes": [
@@ -8166,7 +8218,7 @@
         "228"
       ],
       "nospec": false,
-      "code": "RP-224",
+      "code": "RP-226",
       "hidden": false,
       "name": ""
     },
@@ -8193,7 +8245,7 @@
         "254"
       ],
       "nospec": false,
-      "code": "RP-225",
+      "code": "RP-227",
       "hidden": false,
       "name": ""
     },
@@ -8225,7 +8277,7 @@
         "255"
       ],
       "nospec": false,
-      "code": "RP-226",
+      "code": "RP-228",
       "hidden": false,
       "name": ""
     },
@@ -8257,7 +8309,7 @@
         "258"
       ],
       "nospec": false,
-      "code": "RP-227",
+      "code": "RP-229",
       "hidden": false,
       "name": ""
     },
@@ -8284,7 +8336,7 @@
         "259"
       ],
       "nospec": false,
-      "code": "RP-228",
+      "code": "RP-230",
       "hidden": false,
       "name": ""
     },
@@ -8316,7 +8368,7 @@
         "260"
       ],
       "nospec": false,
-      "code": "RP-229",
+      "code": "RP-231",
       "hidden": false,
       "name": ""
     },
@@ -8343,7 +8395,7 @@
         "225"
       ],
       "nospec": false,
-      "code": "RP-230",
+      "code": "RP-232",
       "hidden": false,
       "name": ""
     },
@@ -8375,7 +8427,7 @@
         "226"
       ],
       "nospec": false,
-      "code": "RP-231",
+      "code": "RP-233",
       "hidden": false,
       "name": ""
     },
@@ -8402,7 +8454,7 @@
         "227"
       ],
       "nospec": false,
-      "code": "RP-232",
+      "code": "RP-234",
       "hidden": false,
       "name": ""
     },
@@ -8432,7 +8484,7 @@
         "245"
       ],
       "nospec": false,
-      "code": "RP-233",
+      "code": "RP-235",
       "hidden": false,
       "name": ""
     },
@@ -8462,7 +8514,7 @@
         "243"
       ],
       "nospec": false,
-      "code": "RP-234",
+      "code": "RP-236",
       "hidden": false,
       "name": ""
     },
@@ -8492,7 +8544,7 @@
         "244"
       ],
       "nospec": false,
-      "code": "RP-235",
+      "code": "RP-237",
       "hidden": false,
       "name": ""
     },
@@ -8517,7 +8569,7 @@
         "250"
       ],
       "nospec": false,
-      "code": "RP-236",
+      "code": "RP-238",
       "hidden": false,
       "name": ""
     },
@@ -8547,7 +8599,7 @@
         "240"
       ],
       "nospec": false,
-      "code": "RP-237",
+      "code": "RP-239",
       "hidden": false,
       "name": ""
     },
@@ -8576,7 +8628,7 @@
         "242"
       ],
       "nospec": false,
-      "code": "RP-238",
+      "code": "RP-240",
       "hidden": false,
       "name": ""
     },
@@ -8604,7 +8656,7 @@
         "256"
       ],
       "nospec": false,
-      "code": "RP-239",
+      "code": "RP-241",
       "hidden": false,
       "name": ""
     },
@@ -8630,7 +8682,7 @@
         "251"
       ],
       "nospec": false,
-      "code": "RP-240",
+      "code": "RP-242",
       "hidden": false,
       "name": ""
     },
@@ -8659,7 +8711,7 @@
         "253"
       ],
       "nospec": false,
-      "code": "RP-241",
+      "code": "RP-243",
       "hidden": false,
       "name": ""
     },
@@ -8688,7 +8740,7 @@
         "257"
       ],
       "nospec": false,
-      "code": "RP-242",
+      "code": "RP-244",
       "hidden": false,
       "name": ""
     },
@@ -8718,7 +8770,7 @@
         "252"
       ],
       "nospec": false,
-      "code": "RP-243",
+      "code": "RP-245",
       "hidden": false,
       "name": ""
     },
@@ -8750,7 +8802,7 @@
         "235"
       ],
       "nospec": false,
-      "code": "RP-244",
+      "code": "RP-246",
       "hidden": false,
       "name": ""
     },
@@ -8779,7 +8831,7 @@
         "223"
       ],
       "nospec": false,
-      "code": "RP-245",
+      "code": "RP-247",
       "hidden": false,
       "name": ""
     },
@@ -8808,7 +8860,7 @@
         "222"
       ],
       "nospec": false,
-      "code": "RP-246",
+      "code": "RP-248",
       "hidden": false,
       "name": ""
     },
@@ -8840,7 +8892,7 @@
         "n017"
       ],
       "nospec": false,
-      "code": "RP-247",
+      "code": "RP-249",
       "hidden": false,
       "name": ""
     },
@@ -8871,7 +8923,7 @@
         "247"
       ],
       "nospec": false,
-      "code": "RP-248",
+      "code": "RP-250",
       "hidden": false,
       "name": ""
     },
@@ -8902,7 +8954,7 @@
         "249"
       ],
       "nospec": false,
-      "code": "RP-249",
+      "code": "RP-251",
       "hidden": false,
       "name": ""
     },
@@ -8932,7 +8984,7 @@
         "231"
       ],
       "nospec": false,
-      "code": "RP-250",
+      "code": "RP-252",
       "hidden": false,
       "name": ""
     },
@@ -8961,9 +9013,34 @@
         "237"
       ],
       "nospec": false,
-      "code": "RP-251",
+      "code": "RP-253",
       "hidden": false,
       "name": ""
+    },
+    {
+      "hq": false,
+      "matte": false,
+      "extra": [],
+      "nospec": false,
+      "hidden": false,
+      "caps": [],
+      "necks": [],
+      "id": 252,
+      "cat": "jar",
+      "sizes": [
+        {
+          "v": 30,
+          "u": "GM"
+        }
+      ],
+      "colors": [
+        "k"
+      ],
+      "imgs": [
+        "n018"
+      ],
+      "name": "Glass jar",
+      "code": "RP-254"
     }
   ]
 }
